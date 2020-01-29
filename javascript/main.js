@@ -9,8 +9,19 @@ document.querySelector(".js-go").addEventListener('click',function(){
   
 });
 
+document.querySelector(".js-userinput").addEventListener('keyup',function(e){
 
-// Show the input
+   var input = document.querySelector("input").value;
+
+  // Push to DOM if the key ENTER is pressed
+  if(e.which === 13) {
+    pushToDOM(input);
+  }
+
+});
+
+
+// Display the input
 
 function pushToDOM(input) {
 
