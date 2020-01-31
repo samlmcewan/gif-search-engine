@@ -1,21 +1,13 @@
-
 // Get the input value
-
-document.querySelector(".js-go").addEventListener('click',function(){
-
+document.querySelector("#form").addEventListener('submit',function(e){
   var input = document.querySelector("input").value;
   pushToDOM(input);
-
   
+  e.preventDefault();
 });
 
-
-// Show the input
-
+// Display the input
 function pushToDOM(input) {
-
 	var container = document.querySelector(".js-container");
-  	container.innerHTML = input;
-
-
+  container.innerHTML = input;
 }
