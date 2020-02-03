@@ -6,8 +6,39 @@ document.querySelector("#form").addEventListener('submit',function(e){
   e.preventDefault();
 });
 
+// Process the data 
+var url = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC";
+
+// AJAX request
+var AJAXGiphyCall = new XMLHttpRequest();
+
+AJAXGiphyCall.open( 'GET', url );
+AJAXGiphyCall.send();
+
+AJAXGiphyCall.addEventListener('load', function(e){
+	 var data = e.target.response;
+	 pushToDOM(data);
+
+});
+
+
+
 // Display the input
 function pushToDOM(input) {
+
+	// cleans up data into an object
+	var response = JSON.parse(input);
+
+	var imageURLs = response.data; 
 	var container = document.querySelector(".js-container");
-  container.innerHTML = input;
+
+	imageURLs.forEach(function(image){
+
+		var src = image.images.fixed_width.url;
+		
+  		container.innerHTML += "<img src='" + src + "'class='container-image'>";
+
+	});
+
+	// displays input in html container
 }
