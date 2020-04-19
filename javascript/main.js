@@ -19,7 +19,6 @@ document.querySelector("#form").addEventListener('submit',function(e){
 
 	});
 
-
 });
 
 // Display the input
@@ -38,8 +37,7 @@ function pushToDOM(input) {
   		container.innerHTML += "<img src='" + src + "'class='container-image'>";
 
 	});
-
-
+document.querySelector("#form").reset();
 
 	
 }
