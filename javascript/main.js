@@ -1,32 +1,31 @@
 // Get the input value
 document.querySelector("#form").addEventListener('submit',function(e){
   var input = document.querySelector("input").value;
-  pushToDOM(input);
+  // pushToDOM(input);
   
   e.preventDefault();
-});
-
 // Process the data 
-var url = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC";
+  var url = "http://api.giphy.com/v1/gifs/search?q=" + input + "&api_key=dc6zaTOxFJmzC";
 
-// AJAX request
-var AJAXGiphyCall = new XMLHttpRequest();
+  // AJAX request
+	var AJAXGiphyCall = new XMLHttpRequest();
 
-AJAXGiphyCall.open( 'GET', url );
-AJAXGiphyCall.send();
+	AJAXGiphyCall.open( 'GET', url );
+	AJAXGiphyCall.send();
 
-AJAXGiphyCall.addEventListener('load', function(e){
-	 var data = e.target.response;
-	 pushToDOM(data);
+	AJAXGiphyCall.addEventListener('load', function(e){
+		 var data = e.target.response;
+		 pushToDOM(data);
+
+	});
+
 
 });
-
-
 
 // Display the input
 function pushToDOM(input) {
 
-	// cleans up data into an object
+	// Cleans up data into objects
 	var response = JSON.parse(input);
 
 	var imageURLs = response.data; 
@@ -40,5 +39,7 @@ function pushToDOM(input) {
 
 	});
 
-	// displays input in html container
+
+
+	
 }
