@@ -37,7 +37,6 @@ function pushToDOM(input) {
   		container.innerHTML += "<img src='" + src + "'class='container-image'>";
 
 	});
-document.querySelector("#form").reset();
 
 	
 }
